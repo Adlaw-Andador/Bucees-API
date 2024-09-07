@@ -24,22 +24,3 @@ exclude_patterns = []
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
-html_extra_path = ['docs/doxygen/html']
-
-# Add breathe to your Sphinx extensions
-extensions = ['breathe']
-
-# Specify where the Doxygen XML output is located
-breathe_projects = {
-    "MyProject": "./docs/doxygen/xml"  # Adjust path if necessary
-}
-
-breathe_default_project = "MyProject"
-
-# Run doxygen for the readthedocs build
-import subprocess, os
-
-read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
-
-if read_the_docs_build:
-     subprocess.call('cd ../doxygen; doxygen', shell=True)
